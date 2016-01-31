@@ -1,0 +1,13 @@
+h1
+  | Home#welcome
+p
+  | Find me in app/views/home/welcome.html.erb
+p
+  - if user_signed_in? || stylist_signed_in?
+    - if user_signed_in?
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+    - elsif stylist_signed_in?
+      = link_to "ログアウト", destroy_stylist_session_path, method: :delete
+    end
+  - else
+    = link_to "無料登録", register_as_path
