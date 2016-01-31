@@ -8,5 +8,6 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:sign_up) << :name
       devise_parameter_sanitizer.for(:sign_up) << :occupation
       devise_parameter_sanitizer.for(:sign_up) << :introduction
+      devise_parameter_sanitizer.for(:sign_up) << :profile_photo
     end
 end

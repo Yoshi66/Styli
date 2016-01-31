@@ -10,7 +10,21 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root 'home#welcome'
+  resources :home, only: [] do
+    collection{
+      get :timeline
+    }
+  end
   get '/register_as', to:'home#register_as'
+  resources :users, only: [:show]
+
+  # resources :comments,only: [:create, :destroy] do
+  #   collection{
+  #     get :like
+  #     get :destroy_like
+  #     post :update_reminder
+  #   }
+  # end
   # get 'home/welcome'
 
   # The priority is based upon order of creation: first created -> highest priority.

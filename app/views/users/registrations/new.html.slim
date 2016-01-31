@@ -18,6 +18,10 @@ h2
     .field
       = f.label :introduction,"自己紹介"
       = f.text_field :introduction, class:"form-control", autofocus:"autofocus", placeholder:"自己紹介"
+  .form-group
+    .field
+      = f.label :profile_photo,"プロフィール写真"
+      = f.file_field :profile_photo
   .field
     = f.label :password
     = f.password_field :password, autocomplete: "off"
