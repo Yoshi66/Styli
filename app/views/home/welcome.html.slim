@@ -3,11 +3,13 @@ h1
 p
   | Find me in app/views/home/welcome.html.erb
 p
-  - if user_signed_in? || stylist_signed_in?
-    - if user_signed_in?
-      = link_to "ログアウト", destroy_user_session_path, method: :delete
-    - elsif stylist_signed_in?
-      = link_to "ログアウト", destroy_stylist_session_path, method: :delete
-    end
-  - else
-    = link_to "無料登録", register_as_path
+
+- if user_signed_in?
+  - @tweets.map do |tweet|
+    = tweet.content
+- elsif stylist_signed_in?
+  - @products.map do |product|
+    = link_to product_path(product) do
+      div style="border: 1px solid #eee"
+        p = image_tag product.product_photo.url, style:"height:200px;width:200px;"
+        p = product.descript

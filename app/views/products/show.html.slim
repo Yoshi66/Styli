@@ -1,0 +1,13 @@
+p#notice = notice
+
+p
+  strong Descript:
+  = @product.descript
+p
+  strong Product photo:
+  = @product.product_photo
+p
+  strong User:
+  = @product.user_id
+
+= link_to "コメントする", root_path

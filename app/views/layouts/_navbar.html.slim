@@ -4,7 +4,16 @@ nav.navbar.navbar-default
       h3 タイトル
     ul.nav.navbar-nav.navbar-right
       li
-        a その他
+        - if user_signed_in?
+          = link_to "コーデを聞く", new_product_path
+        - if stylist_signed_in?
+          = link_to "情報発信する", new_tweet_path
       li
-        a ログイン
-
+        - if user_signed_in? || stylist_signed_in?
+          - if user_signed_in?
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+          - elsif stylist_signed_in?
+            = link_to "ログアウト", destroy_stylist_session_path, method: :delete
+          end
+        - else
+          = link_to "無料登録", register_as_path

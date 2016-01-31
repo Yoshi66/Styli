@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :tweets
+
+  resources :products
+
   devise_for :stylists, :controllers => {
     passwords: 'stylists/passwords',
     sessions: 'stylists/sessions',
